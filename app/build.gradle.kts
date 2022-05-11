@@ -1,10 +1,12 @@
 plugins {
     id("com.android.application")
-    id("org.jetbrains.kotlin.android")
+    id("dagger.hilt.android.plugin")
+    kotlin("android")
+    kotlin("kapt")
 }
 
 android {
-    compileSdk = 32
+    compileSdk = Configs.COMPILE_SDK
 
     defaultConfig {
         applicationId = "co.kr.yapp.android.sampleclean"
@@ -19,7 +21,10 @@ android {
     buildTypes {
         release {
             isMinifyEnabled = false
-            proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
+            proguardFiles(
+                getDefaultProguardFile("proguard-android-optimize.txt"),
+                "proguard-rules.pro"
+            )
         }
     }
     compileOptions {
@@ -32,6 +37,7 @@ android {
 }
 
 dependencies {
+    implementation(project(":presentation"))
 
     implementation(AndroidX.CORE_KTX)
     implementation(AndroidX.APP_COMPAT)
@@ -39,6 +45,9 @@ dependencies {
     implementation(Google.MATERIAL)
 
     testImplementation(UnitTest.JUNIT)
+
+    implementation(Google.HILT_ANDROID)
+    kapt(Google.HILT_ANDROID_COMPILER)
 
     androidTestImplementation(AndroidTest.ANDROID_JUNIT)
     androidTestImplementation(AndroidTest.ESPRESSO_CORE)
