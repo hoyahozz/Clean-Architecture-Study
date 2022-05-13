@@ -11,4 +11,6 @@ java {
 dependencies {
     implementation(Kotlin.KOTLIN_STDLIB)
     implementation(Kotlin.COROUTINES_CORE)
+
+    implementation(Google.HILT_CORE)
 }
