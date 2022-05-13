@@ -15,6 +15,7 @@ object AndroidX {
     const val COMPOSE_MATERIAL            = "androidx.compose.material:material:${Versions.COMPOSE}"
     const val COMPOSE_PREVIEW             = "androidx.compose.ui:ui-tooling-preview:${Versions.COMPOSE}"
     const val COMPOSE_UI_TOOLING          = "androidx.compose.ui:ui-tooling:${Versions.COMPOSE}"
+    const val COMPOSE_MATERIAL_ICON       = "androidx.compose.material:material-icons-extended:${Versions.COMPOSE}"
     const val ACTIVITY_COMPOSE            = "androidx.activity:activity-compose:${Versions.COMPOSE}"
 }
 
