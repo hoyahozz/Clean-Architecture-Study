@@ -4,6 +4,8 @@
     <bytecodeTargetLevel target="1.7">
       <module name="SampleClean.app" target="11" />
       <module name="SampleClean.buildSrc" target="11" />
+      <module name="SampleClean.buildSrc.main" target="11" />
+      <module name="SampleClean.buildSrc.test" target="11" />
       <module name="SampleClean.data" target="11" />
       <module name="SampleClean.presentation" target="11" />
     </bytecodeTargetLevel>
