@@ -10,6 +10,8 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.*
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ExitToApp
+import androidx.compose.material.icons.filled.ExpandLess
+import androidx.compose.material.icons.filled.ExpandMore
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -59,8 +61,8 @@ fun BusCard(name: String) {
                     }
                 ) {
                     Icon(
-                        imageVector = Icons.Filled.ExitToApp,
-                        contentDescription = "자세히 보기"
+                        imageVector = if(state) Icons.Filled.ExpandLess else Icons.Filled.ExpandMore,
+                        contentDescription = "자세히 보기 컨트롤"
                     )
                 }
             }
