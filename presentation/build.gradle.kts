@@ -44,6 +44,7 @@ dependencies {
     implementation(AndroidX.COMPOSE_UI)
     implementation(AndroidX.COMPOSE_MATERIAL)
     implementation(AndroidX.COMPOSE_PREVIEW)
+    implementation(AndroidX.COMPOSE_MATERIAL_ICON)
     implementation(AndroidX.ACTIVITY_COMPOSE)
 
     implementation(Libraries.COIL)
