@@ -7,9 +7,9 @@ import retrofit2.http.Path
 
 interface BusApi {
 
-    @GET("json/busStopLocationXyInfo/{sIndex}/{eIndex}")
+    @GET("json/busStopLocationXyInfo/{startIndex}/{endIndex}")
     suspend fun getBus(
-        @Path("sIndex") sIndex : Int,
-        @Path("eIndex") eIndex : Int
+        @Path("startIndex") startIndex : Int,
+        @Path("endIndex") endIndex : Int
     ) : Response<BusModel>
 }

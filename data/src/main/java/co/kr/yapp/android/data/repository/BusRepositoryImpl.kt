@@ -11,9 +11,9 @@ import javax.inject.Inject
 class BusRepositoryImpl @Inject constructor(
     private val busApi: BusApi
 ) : BusRepository {
-    override suspend fun getBus(sIndex: Int, eIndex: Int): Result<List<BusEntity>> {
+    override suspend fun getBus(startIndex: Int, endIndex: Int): Result<List<BusEntity>> {
 
-        val response = busApi.getBus(sIndex, eIndex)
+        val response = busApi.getBus(startIndex, endIndex)
         return try {
             if (response.isSuccessful) {
                 return Result.Success(response.body()!!.busInfo.bus.map{
