@@ -46,6 +46,7 @@ dependencies {
     implementation(AndroidX.COMPOSE_PREVIEW)
     implementation(AndroidX.COMPOSE_MATERIAL_ICON)
     implementation(AndroidX.ACTIVITY_COMPOSE)
+    implementation(AndroidX.HILT_NAVIGATION_COMPOSE)
 
     implementation(Libraries.COIL)
 
