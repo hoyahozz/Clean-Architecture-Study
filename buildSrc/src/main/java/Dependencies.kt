@@ -17,7 +17,7 @@ object AndroidX {
     const val COMPOSE_UI_TOOLING          = "androidx.compose.ui:ui-tooling:${Versions.COMPOSE}"
     const val COMPOSE_MATERIAL_ICON       = "androidx.compose.material:material-icons-extended:${Versions.COMPOSE}"
     const val ACTIVITY_COMPOSE            = "androidx.activity:activity-compose:${Versions.COMPOSE}"
-    const val HILT_NAVIGATION_COMPOSE     = "androidx.hilt:hilt-navigation-compose:1.0.0-alpha03"
+    const val HILT_NAVIGATION_COMPOSE     = "androidx.hilt:hilt-navigation-compose:${Versions.HILT_COMPOSE}"
 }
 
 object Google {

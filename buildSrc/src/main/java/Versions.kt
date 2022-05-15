@@ -10,6 +10,7 @@ object Versions {
     const val CONSTRAINT_LAYOUT = "2.1.3"
     const val LIFECYCLE_KTX     = "2.3.1"
     const val COMPOSE           = "1.1.1"
+    const val HILT_COMPOSE      = "1.0.0-alpha03"
 
     const val CORE_KTX          = "1.7.0"
 
