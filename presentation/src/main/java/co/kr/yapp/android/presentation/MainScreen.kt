@@ -7,37 +7,44 @@ import androidx.compose.material.Scaffold
 import androidx.compose.material.Text
 import androidx.compose.material.TopAppBar
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.collectAsState
+import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import co.kr.yapp.android.domain.model.BusEntity
 import co.kr.yapp.android.presentation.ui.theme.CleanArchitectureTheme
+import androidx.hilt.navigation.compose.hiltViewModel
 
 @Composable
-fun MainScreen() {
-    CleanArchitectureTheme() {
-        val sampleBusList = listOf("종로1가", "종로2가사거리", "창경궁.서울대학교병원", "명륜3가.성대입구", "종로2가.삼일교")
+fun MainScreen(
+    viewModel: MainViewModel = hiltViewModel(),
+) {
+    viewModel.getBusStationList(1, 200)
+    val busState by viewModel.busStations.collectAsState()
 
+    CleanArchitectureTheme {
         Scaffold(
             topBar = { TopAppBar(title = { Text("Clean Architecture Sample") }) }
         ) {
-            SimpleBusList(sampleBusList)
+            SimpleBusList(busState)
         }
     }
 }
 
 @Composable
-fun SimpleBusList(names: List<String>) {
+fun SimpleBusList(buses: List<BusEntity>) {
     LazyColumn(modifier = Modifier.padding(8.dp)) {
-        items(items = names) { name ->
-            BusCard(name)
+        items(items = buses) { bus ->
+            BusCard(bus)
         }
     }
 }
 
 @Preview(showBackground = true)
 @Composable
-fun CleanPreview() {
+fun CleanPreview(viewModel: MainViewModel = hiltViewModel()) {
     CleanArchitectureTheme {
-        MainScreen()
+        MainScreen(viewModel)
     }
 }
