@@ -9,7 +9,6 @@ import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.*
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.ExitToApp
 import androidx.compose.material.icons.filled.ExpandLess
 import androidx.compose.material.icons.filled.ExpandMore
 import androidx.compose.runtime.*
@@ -18,11 +17,12 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import co.kr.yapp.android.domain.model.BusEntity
 import co.kr.yapp.android.presentation.ui.theme.CleanArchitectureTheme
 
 @Composable
-fun BusCard(name: String) {
-    var state by remember { mutableStateOf(false) }
+fun BusCard(bus: BusEntity) {
+    var expandedState by remember { mutableStateOf(false) }
 
     Card(
         backgroundColor = MaterialTheme.colors.secondary,
@@ -31,7 +31,7 @@ fun BusCard(name: String) {
             .fillMaxWidth()
             .padding(vertical = 4.dp, horizontal = 8.dp)
     ) {
-        Box(Modifier.clickable { Log.d("Main", "Click Listener") }) {
+        Box {
             Row(
                 modifier =
                 Modifier
@@ -46,22 +46,25 @@ fun BusCard(name: String) {
             ) {
                 Column(modifier = Modifier.weight(1f)) {
                     Text(
-                        text = name,
+                        text = bus.name,
                         style = MaterialTheme.typography.h6.copy(
                             fontWeight = FontWeight.ExtraBold
                         )
                     )
-                    if (state) {
-                        Text(text = "좌표 예제", Modifier.padding(top = 24.dp))
+                    if (expandedState) {
+                        Text(text = bus.xCoordinate, Modifier.padding(top = 24.dp))
+                    }
+                    if (expandedState) {
+                        Text(text = bus.yCoordinate, Modifier.padding(top = 8.dp))
                     }
                 }
                 IconButton(
                     onClick = {
-                        state = !state
+                        expandedState = !expandedState
                     }
                 ) {
                     Icon(
-                        imageVector = if(state) Icons.Filled.ExpandLess else Icons.Filled.ExpandMore,
+                        imageVector = if(expandedState) Icons.Filled.ExpandLess else Icons.Filled.ExpandMore,
                         contentDescription = "자세히 보기 컨트롤"
                     )
                 }
@@ -76,8 +79,7 @@ fun BusCard(name: String) {
 fun BusItemPreview() {
     CleanArchitectureTheme {
         Surface {
-            BusCard(name = "종로1가")
+            BusCard(bus = BusEntity("Test", "101.1213", "202.2123"))
         }
     }
-    
 }
