@@ -8,7 +8,7 @@ import javax.inject.Inject
 class GetBusUseCase @Inject constructor(
     private val busRepository: BusRepository
 ) {
-    suspend fun invoke(sIndex: Int, eIndex: Int): Result<List<BusEntity>> {
-        return busRepository.getBus(sIndex, eIndex)
+    suspend operator fun invoke(startIndex: Int, endIndex: Int): Result<List<BusEntity>> {
+        return busRepository.getBus(startIndex, endIndex)
     }
 }

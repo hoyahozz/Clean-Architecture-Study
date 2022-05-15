@@ -21,7 +21,7 @@ class MainViewModel @Inject constructor(
 
     fun getBusStationList(startIndex: Int, endIndex: Int) {
         viewModelScope.launch {
-            val result = getBusUseCase.invoke(startIndex, endIndex)
+            val result = getBusUseCase(startIndex, endIndex)
 
             when(result) {
                 is Result.Success -> _busStations.value = result.data
